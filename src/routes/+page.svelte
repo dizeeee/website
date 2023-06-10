@@ -9,7 +9,7 @@
 		<h2 class="font-header text-3xl">Software Engineer</h2>
 	</div>
 
-	<div class="absolute bottom-[5%]">
+	<div class="absolute bottom-[5%] border-t-white border-b-black border-y">
 		<DitherDivider />
 	</div>
 	<div class="absolute bottom-0 bg-white w-full h-[5%] flex justify-center">

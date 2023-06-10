@@ -17,12 +17,16 @@ void main() {
     `;
 
 	let fragmentShaderSource = `#version 300 es
-precision lowp float;
+precision highp float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
 
 out vec4 fragColor;
+
+float rand(float x){
+    return fract(sin(dot(vec2(x, x), vec2(12.9898, 78.233))) * 43758.5453);
+}
 
 float variance(float x, int amount) {
 	float time = u_time;
@@ -34,31 +38,56 @@ float variance(float x, int amount) {
 	return result/float(amount);
 }
 
-float wave(float x, float speed) {
-	float time = u_time * speed;
-
-	// offset starting position, kinda random
-	float offset = 91.0;
+float wave(float x, float speed, int type) {
+	float time = u_time * speed + rand(float(type));
 
 	// setup
-	float base = sin(x + time + speed * offset);
-	float vary = variance(x + time, 10);
+	float base = 0.0;
 	
-	// add variance
-	base += vary;
-	// base /= variance(x + time, 10) + 2.0;
+	// sin(x+time);
 
-	// fix range
+	switch (type) {
+	case 0:
+		base = sin(x + time);
+		break;
+	case 1:
+		base = sin(x + time) * sin(x + time * 2.);
+		break;
+	case 2:
+		base = sin(x + time) * sin(x + time * 3.) * sin(x + time * 5.);
+		break;
+	}
+	
+	// float wobble = variance(sin(time), 5);
+	// base *= wobble;
+
+	switch (type) {
+		case 0:
+			base *= 0.5;
+			break;
+		case 1:
+			base *= 0.25;
+			break;
+		case 2:
+			base *= 0.125;
+			break;
+	}
+
+	float vary = variance(x, 5);
+	base += vary;
+	
 	base /= 2.0;
-	base += 1.0;
-	return base / 3.0;
+	base += 0.5;
+
+	return base;
 }
 
 vec3 colorWaves(vec2 st, float time) {
 	vec3 color = vec3(0.0);
 	
 	for (int i = 0; i < 3; i++) {
-		if(st.y < wave(st.x, float(i)/3.0)) {
+		float value = wave(st.x, 0.5, i);
+		if(st.y < value) {
 			color[i] = 1.0;
 		}
 	}
