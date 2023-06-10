@@ -24,71 +24,55 @@ uniform float u_time;
 
 out vec4 fragColor;
 
-bool dither(float value, vec2 pos) {
-	int bayerFilter[16] = int[16](
-		0,  8,  2,  10,
-		12, 4,  14, 6,
-		3,  11, 1,  9,
-		15, 7,  13, 5
-	);
-
-	int x = int(mod(pos.x, 4.0));
-	int y = int(mod(pos.y, 4.0));
-	int index = y * 4 + x;
-	int threshold = bayerFilter[index];
-
-	return value > float(threshold) / 16.0;
+float variance(float x, int amount) {
+	float time = u_time;
+	
+	float result = 0.0;
+	for (int i = 1; i < amount; i++) {
+		result += sin(x / float(i));
+	}
+	return result/float(amount);
 }
 
-float mapRange(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
-  float t = (value - inputMin) / (inputMax - inputMin);
-  return mix(outputMin, outputMax, t);
+float wave(float x, float speed) {
+	float time = u_time * speed;
+
+	// offset starting position, kinda random
+	float offset = 91.0;
+
+	// setup
+	float base = sin(x + time + speed * offset);
+	float vary = variance(x + time, 10);
+	
+	// add variance
+	base += vary;
+	// base /= variance(x + time, 10) + 2.0;
+
+	// fix range
+	base /= 2.0;
+	base += 1.0;
+	return base / 3.0;
 }
 
-float stan(float x) {
-  	return clamp(tan(x), -10.0, 10.0);
-}
+vec3 colorWaves(vec2 st, float time) {
+	vec3 color = vec3(0.0);
+	
+	for (int i = 0; i < 3; i++) {
+		if(st.y < wave(st.x, float(i)/3.0)) {
+			color[i] = 1.0;
+		}
+	}
 
-float sec(float x) {
-	return clamp(1.0 / cos(x), -10.0, 10.0);
-}
-
-float csc(float x) {
-	return clamp(1.0 / sin(x), -10.0, 10.0);
-}
-
-float randomWave(float x, float y, float time) {
-  float speed = 1.0;
-  time *= speed;
-
-  float wave = stan(time + x * speed) + csc(time + x * speed) + sec(time + x * speed) / sec(time + x * speed) + csc(time + x * speed);
-
-  return wave/10.0;
+	return color;
 }
 
 void main() {
 	vec2 aspectRatio = vec2(u_resolution.x / u_resolution.y, 1.0);
-	vec2 st = (gl_FragCoord.xy / u_resolution.xy); // * aspectRatio;
+	vec2 st = (gl_FragCoord.xy / u_resolution.xy)* aspectRatio;
 
-	float blackWave = abs(randomWave(st.x, st.y, sin(-u_time)));
-	float whiteWave = abs(randomWave(st.x, st.y, cos(u_time)));
+	vec3 color = colorWaves(st, u_time);
 
-	blackWave = mapRange(blackWave, -1.0, 1.0, 0.0, 0.5);
-	whiteWave = mapRange(whiteWave, -1.0, 1.0, 0.0, 0.5);
-
-	if (st.y > blackWave + whiteWave) {
-		fragColor = vec4(0.0, 0.0, 0.0, 1.0);
-	} else if (st.y < whiteWave) {
-		fragColor = vec4(1.0, 1.0, 1.0, 1.0);
-	} else {
-		float gray = 1.0 - ((st.y - whiteWave) / blackWave);
-		if(dither(gray, gl_FragCoord.xy)) {
-			gray = 1.0;
-		} else {
-			gray = 0.0;
-		}
-		fragColor = vec4(gray, gray, gray, 1.0);
-	}
+	fragColor = vec4(color, 1.0);
 }`;
 
 	onMount(() => {
@@ -167,7 +151,7 @@ void main() {
 
 	function resizeCanvas() {
 		width = document.body.clientWidth;
-		height = document.body.clientHeight / 10;
+		height = document.body.clientHeight / 20;
 	}
 </script>
 

@@ -9,10 +9,10 @@
 		<h2 class="font-header text-3xl">Software Engineer</h2>
 	</div>
 
-	<div class="absolute bottom-[10%] border-t border-white">
+	<div class="absolute bottom-[5%]">
 		<DitherDivider />
 	</div>
-	<div class="absolute bottom-0 bg-white w-full h-[10%] flex justify-center">
+	<div class="absolute bottom-0 bg-white w-full h-[5%] flex justify-center">
 		<!-- <img src={DownArrow} class="w-auto h-full pt-8 pb-12" /> -->
 	</div>
 </div>
