@@ -17,89 +17,53 @@ void main() {
     `;
 
 	let fragmentShaderSource = `#version 300 es
-precision highp float;
+precision lowp float;
 
 uniform vec2 u_resolution;
 uniform float u_time;
 
 out vec4 fragColor;
 
-float rand(float x){
-    return fract(sin(dot(vec2(x, x), vec2(12.9898, 78.233))) * 43758.5453);
+// return a random number between 0 and 1
+float rand(int x, int seed){
+	return fract(sin(float(x+seed)*1.0)*1.0);
 }
 
-float variance(float x, int amount) {
+float wave(
+	vec2 st,
+	float width, // width of individual waves
+	float interval, // time between waves
+	int seed
+) {
 	float time = u_time;
-	
-	float result = 0.0;
-	for (int i = 1; i < amount; i++) {
-		result += sin(x / float(i));
-	}
-	return result/float(amount);
-}
+	int pos = int(st.x/width);
 
-float wave(float x, float speed, int type) {
-	float time = u_time * speed + rand(float(type));
+	vec2 currentPos = vec2(
+		rand(pos, seed + int(time/interval)),
+		rand(pos+1, seed + int(time/interval))
+	);
 
-	// setup
-	float base = 0.0;
-	
-	// sin(x+time);
+	vec2 nextPos = vec2(
+		rand(pos, seed + int(time/interval) + 1),
+		rand(pos+1, seed + int(time/interval) + 1)
+	);
 
-	switch (type) {
-	case 0:
-		base = sin(x + time);
-		break;
-	case 1:
-		base = sin(x + time) * sin(x + time * 2.);
-		break;
-	case 2:
-		base = sin(x + time) * sin(x + time * 3.) * sin(x + time * 5.);
-		break;
-	}
-	
-	// float wobble = variance(sin(time), 5);
-	// base *= wobble;
+	vec2 tweenLerp = mix(currentPos, nextPos, vec2(st.x/width - float(pos)));
 
-	switch (type) {
-		case 0:
-			base *= 0.5;
-			break;
-		case 1:
-			base *= 0.25;
-			break;
-		case 2:
-			base *= 0.125;
-			break;
-	}
-
-	float vary = variance(x, 5);
-	base += vary;
-	
-	base /= 2.0;
-	base += 0.5;
-
-	return base;
-}
-
-vec3 colorWaves(vec2 st, float time) {
-	vec3 color = vec3(0.0);
-	
-	for (int i = 0; i < 3; i++) {
-		float value = wave(st.x, 0.5, i);
-		if(st.y < value) {
-			color[i] = 1.0;
-		}
-	}
-
-	return color;
+	return mix(tweenLerp.x, tweenLerp.y, mod(time, interval) / interval );
 }
 
 void main() {
 	vec2 aspectRatio = vec2(u_resolution.x / u_resolution.y, 1.0);
-	vec2 st = (gl_FragCoord.xy / u_resolution.xy)* aspectRatio;
+	vec2 st = (gl_FragCoord.xy / u_resolution.xy) * aspectRatio;
 
-	vec3 color = colorWaves(st, u_time);
+	vec3 color = vec3(0.0);
+
+	for (int i = 0; i < 3; i++) {
+		color[i] = step(0.0, wave(st, 5., 1., int(rand(int(i), int(i)))) - st.y);
+		// fade based on distance from interval
+		color[i] -= st.x/float(5) - float(int(st.x/float(5)));
+	}
 
 	fragColor = vec4(color, 1.0);
 }`;
