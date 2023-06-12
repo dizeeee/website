@@ -47,7 +47,10 @@
 
 <!-- header -->
 <div class="relative flex h-[100svh] w-full items-center justify-center bg-black text-white">
-	<div class="flex flex-col items-center space-y-2">
+	<div
+		class="z-10 flex flex-col items-center space-y-2"
+		style="text-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.5);"
+	>
 		<h1 class="text-center">Jack Malcom</h1>
 		<h2 class="text-center">Software Engineer</h2>
 	</div>
