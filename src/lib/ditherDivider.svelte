@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let canvas: HTMLCanvasElement;
-	let gl: WebGLRenderingContext;
+	let gl: WebGL2RenderingContext;
 	let program: WebGLProgram;
 	let positionBuffer: WebGLBuffer;
 	let width = 0;
@@ -24,9 +24,26 @@ uniform float u_time;
 
 out vec4 fragColor;
 
+#define PI 3.1415926538
+
 // return a random number between 0 and 1
 float rand(int x, int seed){
 	return fract(sin(float(x+seed)*1.0)*1.0);
+}
+
+float rand(int x){
+	return rand(x, x);
+}
+
+float curve(float x, float y, float t) {
+	return mix(x, y, t*t*(3.0-2.0*t));
+}
+
+vec2 curve(vec2 x, vec2 y, float t) {
+	return vec2(
+		curve(x.x, y.x, t),
+		curve(x.y, y.y, t)
+	);
 }
 
 float wave(
@@ -35,7 +52,8 @@ float wave(
 	float interval, // time between waves
 	int seed
 ) {
-	float time = u_time;
+	float timeOffset = rand(seed+1);
+	float time = u_time + 100.5*timeOffset;
 	int pos = int(st.x/width);
 
 	vec2 currentPos = vec2(
@@ -48,7 +66,7 @@ float wave(
 		rand(pos+1, seed + int(time/interval) + 1)
 	);
 
-	vec2 tweenLerp = mix(currentPos, nextPos, vec2(st.x/width - float(pos)));
+	vec2 tweenLerp = curve(currentPos, nextPos, st.x/width - float(pos));
 
 	return mix(tweenLerp.x, tweenLerp.y, mod(time, interval) / interval );
 }
@@ -60,9 +78,7 @@ void main() {
 	vec3 color = vec3(0.0);
 
 	for (int i = 0; i < 3; i++) {
-		color[i] = step(0.0, wave(st, 5., 1., int(rand(int(i), int(i)))) - st.y);
-		// fade based on distance from interval
-		color[i] -= st.x/float(5) - float(int(st.x/float(5)));
+		color[i] = smoothstep(0.0, 0.03, wave(st, 5., 10., int(100.*rand(int(i)))) - st.y);
 	}
 
 	fragColor = vec4(color, 1.0);
@@ -71,7 +87,7 @@ void main() {
 	onMount(() => {
 		resizeCanvas();
 
-		gl = canvas.getContext('webgl2')!;
+		gl = canvas.getContext('webgl2', { antialias: true })!;
 		if (!gl) throw new Error('Could not get WebGL context');
 
 		// create vertex shader
