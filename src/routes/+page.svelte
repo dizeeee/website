@@ -24,7 +24,7 @@
 
 <!-- navbar -->
 <nav
-	class="fixed top-0 z-50 m-4 space-x-3 rounded-full px-6 py-4 mix-blend-difference backdrop-blur-[2px] before:fixed before:inset-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
+	class="fixed top-0 z-50 m-4 space-x-3 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:inset-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
 >
 	<a href="#about" class="invert hover:underline" on:click|preventDefault={scrollIntoView}>About</a>
 	<a href="#contact" class="invert hover:underline" on:click|preventDefault={scrollIntoView}
