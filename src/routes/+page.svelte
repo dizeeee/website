@@ -29,13 +29,13 @@
 	>
 		<a
 			href="#about"
-			class="invert hover:underline"
+			class="decoration-2 underline-offset-2 invert hover:underline"
 			aria-label="Scroll to the about section"
 			on:click|preventDefault={scrollIntoView}>About</a
 		>
 		<a
 			href="#contact"
-			class="invert hover:underline"
+			class="decoration-2 underline-offset-2 invert hover:underline"
 			aria-label="Scroll to the contact section"
 			on:click|preventDefault={scrollIntoView}
 		>
