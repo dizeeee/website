@@ -27,10 +27,18 @@
 	<nav
 		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:inset-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
 	>
-		<a href="#about" class="invert hover:underline" on:click|preventDefault={scrollIntoView}
-			>About</a
+		<a
+			href="#about"
+			class="invert hover:underline"
+			aria-label="Scroll to the about section"
+			on:click|preventDefault={scrollIntoView}>About</a
 		>
-		<a href="#contact" class="invert hover:underline" on:click|preventDefault={scrollIntoView}>
+		<a
+			href="#contact"
+			class="invert hover:underline"
+			aria-label="Scroll to the contact section"
+			on:click|preventDefault={scrollIntoView}
+		>
 			Contact
 		</a>
 		<!-- <a href="blog" class="hover:underline">Blog</a> -->
@@ -77,10 +85,10 @@
 				</div>
 				<p>
 					At Bounteous, I work with the Cloud Engineering Security to develop tools to make
-					deployments smoother and data more accessible. I started by redesigning the tool we use to
-					deploy the frontends and APIs that many of the major fast food chains in the US rely on
-					using Angular and FastAPI. Currently, I'm working on a status page that makes it easier
-					for our non technical clients to view and understand their AWS infrastructure.
+					deployments smoother and data more accessible. My first project was redesigning the tool
+					we use to deploy the frontends and APIs that many of the major fast food chains in the US
+					rely on using Angular and FastAPI. Currently, I'm working on a status page that makes it
+					easier for our non technical clients to view and understand their AWS infrastructure.
 				</p>
 			</section>
 
@@ -164,7 +172,11 @@
 			<p>PostgreSQL - SQLite - DynamoDB</p>
 
 			<h4>Tools</h4>
-			<p>Node.js - Git - Docker - AWS - <a href="https://archlinux.org/">Linux</a></p>
+			<p>
+				Node.js - Git - Docker - AWS - <a href="https://archlinux.org/" aria-label="Arch BTW"
+					>Linux</a
+				>
+			</p>
 		</section>
 
 		<section>
@@ -174,11 +186,16 @@
 				<h4>MTG Inventory</h4>
 				<p>
 					My current hobby project is a system to help me keep inventory of my Magic: The Gathering
-					cards. It's similar to services like <a href="https://deckbox.org/">Deckbox</a>, and I'm
-					building it using <a href="https://kit.svelte.dev/">SvelteKit</a>,
-					<a href="https://neon.tech/">Postgres</a>, <a href="https://turso.tech/">SQLite</a>, and
-					<a href="https://vercel.com/">Vercel</a>. Currently, I'm working on improving database
-					structure so I can make complicated queries that other inventory sites can't.
+					cards. It's similar to services like <a
+						href="https://deckbox.org/"
+						aria-label="Deckbox.org">Deckbox</a
+					>, and I'm building it using
+					<a href="https://kit.svelte.dev/" aria-label="SvelteKit">SvelteKit</a>,
+					<a href="https://neon.tech/" aria-label="Neon Postgres">Postgres</a>,
+					<a href="https://turso.tech/" aria-label="Turso SQLite">SQLite</a>, and
+					<a href="https://vercel.com/" aria-label="Vercel">Vercel</a>. Currently, I'm working on
+					improving database structure so I can make complicated queries that other inventory sites
+					can't.
 				</p>
 			</section>
 
@@ -194,7 +211,7 @@
 			</section>
 
 			<section>
-				<h4><a href="https://discord.gg/6KTkmta">Error 479</a></h4>
+				<h4><a href="https://discord.gg/6KTkmta" aria-label="Invite to Error 479">Error 479</a></h4>
 				<p>
 					Error 479 is a Discord server I started in college to give CSCE students a place find each
 					other and talk. Over time, it has grown into the largest tech based Discord server in the
@@ -207,14 +224,15 @@
 			<h3>How to reach me</h3>
 			<p>
 				Want to talk? Feel free to send me an email at <em>me(at)jackmal(dot)com</em>, message me on
-				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/">LinkedIn</a>, or check out the
-				links below.
+				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/" aria-label="My LinkedIn"
+					>LinkedIn</a
+				>, or check out the links below.
 			</p>
 			<div class="flex h-16 items-center justify-center space-x-4 pb-4 text-4xl">
-				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/">
+				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/" aria-label="My LinkedIn">
 					<i class="fa-brands fa-linkedin hover:contrast-50" />
 				</a>
-				<a href="https://github.com/dizeeee">
+				<a href="https://github.com/dizeeee" aria-label="My GitHub">
 					<i class="fa-brands fa-github hover:contrast-50" />
 				</a>
 			</div>
