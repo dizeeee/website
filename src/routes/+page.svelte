@@ -63,7 +63,7 @@
 
 <!-- content -->
 <div class="flex justify-center bg-white">
-	<div class="flex min-h-[100svh] max-w-4xl flex-col p-4">
+	<div class="flex min-h-[100svh] max-w-4xl flex-col px-4 pb-32 pt-4">
 		<section id="about">
 			<section>
 				<h3>Hey there!</h3>
