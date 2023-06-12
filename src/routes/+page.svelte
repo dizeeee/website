@@ -171,15 +171,6 @@
 			<h3>Things I like working on</h3>
 
 			<section>
-				<h4>Error 479</h4>
-				<p>
-					Error 479 is a Discord server I started in college to give CSCE students a place find each
-					other and talk. Over time, it has grown into the largest tech based Discord server in the
-					area.
-				</p>
-			</section>
-
-			<section>
 				<h4>MTG Inventory</h4>
 				<p>
 					My current hobby project is a system to help me keep inventory of my Magic: The Gathering
@@ -199,6 +190,15 @@
 					that shoots you with a Nerf gun to wake you up. (the theme was smart homes) As a graduate,
 					I still participate as a mentor every semester, and I'm always blown away by the great
 					ideas students manage to come up with.
+				</p>
+			</section>
+
+			<section>
+				<h4><a href="https://discord.gg/6KTkmta">Error 479</a></h4>
+				<p>
+					Error 479 is a Discord server I started in college to give CSCE students a place find each
+					other and talk. Over time, it has grown into the largest tech based Discord server in the
+					area.
 				</p>
 			</section>
 		</section>
