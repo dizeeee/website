@@ -25,69 +25,79 @@
 <div class="flex justify-center bg-white">
 	<div class="flex min-h-[100svh] max-w-4xl flex-col p-4" id="about">
 		<section>
-			<h3>Hey there!</h3>
-			<p>
-				I'm Jack, a software engineer based in Fayetteville, AR. I graduated from University of
-				Arkansas with a Computer Science BS, and I'm currently working at Bounteous as a developer
-				on the Cloud Engineering Security team.
-			</p>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab quaerat eum illum tempore
-				pariatur eaque natus accusamus, ratione aspernatur cupiditate dolore quia labore perferendis
-				ducimus harum explicabo voluptates! Tempore, aliquid!
-			</p>
+			<section>
+				<h3>Hey there!</h3>
+				<p>
+					I'm Jack, a software engineer based in Fayetteville, AR. I graduated from University of
+					Arkansas with a Computer Science BS, and I'm currently working at Bounteous as a developer
+					on the Cloud Engineering Security team.
+				</p>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab quaerat eum illum tempore
+					pariatur eaque natus accusamus, ratione aspernatur cupiditate dolore quia labore
+					perferendis ducimus harum explicabo voluptates! Tempore, aliquid!
+				</p>
+			</section>
 		</section>
 
 		<section>
 			<h3>Where I've been</h3>
 
-			<div class="flex justify-between">
-				<h4>Bounteous</h4>
-				<span><em>March 2022 - Present</em></span>
-			</div>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit accusamus
-				officiis eligendi nobis doloremque placeat, consectetur aperiam tempora ab cupiditate omnis
-				veritatis adipisci velit tempore maxime a, ipsum iure. Enim, excepturi voluptatum earum
-				sapiente consequatur ea ratione iure expedita obcaecati dolore doloribus sequi quibusdam
-				perferendis labore ipsum non fugit quae eum aspernatur quo saepe. Ut ratione quidem eum
-				amet.
-			</p>
+			<section>
+				<div class="flex items-center justify-between">
+					<h4>Bounteous</h4>
+					<span><em>March 2022 - Present</em></span>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit accusamus
+					officiis eligendi nobis doloremque placeat, consectetur aperiam tempora ab cupiditate
+					omnis veritatis adipisci velit tempore maxime a, ipsum iure. Enim, excepturi voluptatum
+					earum sapiente consequatur ea ratione iure expedita obcaecati dolore doloribus sequi
+					quibusdam perferendis labore ipsum non fugit quae eum aspernatur quo saepe. Ut ratione
+					quidem eum amet.
+				</p>
+			</section>
 
-			<div class="flex justify-between">
-				<h4>Tesseract Ventures</h4>
-				<span><em>September 2021 - December 2021</em></span>
-			</div>
-			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, tempora aliquam magnam
-				blanditiis et inventore nesciunt tenetur, non laborum enim doloribus reiciendis fugit quasi
-				provident sed impedit maiores voluptate explicabo.
-			</p>
-			<p>
-				Repellendus consectetur expedita quas. Nam unde dolorem nostrum eos, ducimus mollitia
-				placeat soluta illum id vel accusamus totam beatae quam voluptates rerum provident ratione
-				commodi quia. Illum unde placeat quis.
-			</p>
+			<section>
+				<div class="flex items-center justify-between">
+					<h4>Tesseract Ventures</h4>
+					<span><em>September 2021 - December 2021</em></span>
+				</div>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, tempora aliquam magnam
+					blanditiis et inventore nesciunt tenetur, non laborum enim doloribus reiciendis fugit
+					quasi provident sed impedit maiores voluptate explicabo.
+				</p>
+				<p>
+					Repellendus consectetur expedita quas. Nam unde dolorem nostrum eos, ducimus mollitia
+					placeat soluta illum id vel accusamus totam beatae quam voluptates rerum provident ratione
+					commodi quia. Illum unde placeat quis.
+				</p>
+			</section>
 
-			<div class="flex justify-between">
-				<h4>SupplyPike</h4>
-				<span><em>May 2021 - September 2021</em></span>
-			</div>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quis aspernatur voluptatem
-				corrupti dicta quas, id eum explicabo vel error aliquam, unde consectetur, repellendus
-				praesentium voluptates! Odit cum doloremque consequuntur.
-			</p>
+			<section>
+				<div class="flex items-center justify-between">
+					<h4>SupplyPike</h4>
+					<span><em>May 2021 - September 2021</em></span>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quis aspernatur voluptatem
+					corrupti dicta quas, id eum explicabo vel error aliquam, unde consectetur, repellendus
+					praesentium voluptates! Odit cum doloremque consequuntur.
+				</p>
+			</section>
 
-			<div class="flex justify-between">
-				<h4>Affirma</h4>
-				<span><em>October 2020 - April 2021</em></span>
-			</div>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum ut perferendis
-				enim! Corrupti dolorem incidunt nisi, delectus neque, eum quae vero repudiandae, ipsam sint
-				aspernatur placeat illo adipisci hic?
-			</p>
+			<section>
+				<div class="flex items-center justify-between">
+					<h4>Affirma</h4>
+					<span><em>October 2020 - April 2021</em></span>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum ut perferendis
+					enim! Corrupti dolorem incidunt nisi, delectus neque, eum quae vero repudiandae, ipsam
+					sint aspernatur placeat illo adipisci hic?
+				</p>
+			</section>
 		</section>
 	</div>
 </div>
@@ -115,7 +125,7 @@
 	}
 
 	section {
-		@apply pb-8;
+		@apply pb-4;
 	}
 
 	p {
