@@ -25,7 +25,7 @@
 <!-- navbar -->
 <div class="mx-auto flex max-w-7xl">
 	<nav
-		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:inset-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
+		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:bottom-0 before:left-0 before:right-0 before:top-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
 	>
 		<a
 			href="#about"
@@ -165,21 +165,20 @@
 				and tools, and if I don't know something, I can learn it.
 			</p>
 
-			<h4>Languages</h4>
-			<p>Javascript - Typescript - Python - Java - Rust - Dart - LaTeX - GLSL</p>
-
-			<h4>Frameworks</h4>
-			<p>Node.js - React - Angular - FastAPI - Express - NestJS - Flutter - Svelte</p>
-
-			<h4>Databases</h4>
-			<p>PostgreSQL - SQLite - DynamoDB</p>
-
-			<h4>Tools</h4>
-			<p>
-				Node.js - Git - Docker - AWS - <a href="https://archlinux.org/" aria-label="Arch BTW"
-					>Linux</a
-				>
-			</p>
+			<section>
+				<h4>Languages</h4>
+				<p>Javascript - Typescript - Python - Java - Rust - Dart - LaTeX - GLSL</p>
+				<h4>Frameworks</h4>
+				<p>Node.js - React - Angular - FastAPI - Express - NestJS - Flutter - Svelte</p>
+				<h4>Databases</h4>
+				<p>PostgreSQL - SQLite - DynamoDB</p>
+				<h4>Tools</h4>
+				<p>
+					Node.js - Git - Docker - AWS - <a href="https://archlinux.org/" aria-label="Arch BTW"
+						>Linux</a
+					>
+				</p>
+			</section>
 		</section>
 
 		<section>
