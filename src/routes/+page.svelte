@@ -153,7 +153,7 @@
 		</section>
 
 		<section>
-			<h3>A very specific set of skills</h3>
+			<h3>A very particular set of skills</h3>
 			<p>
 				I got into computers as a kid by learning how to host Minecraft servers for friends. I
 				eventually learned that you could do the same thing by putting Ubuntu on an old computer,
