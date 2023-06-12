@@ -25,7 +25,7 @@
 <!-- navbar -->
 <div class="mx-auto flex max-w-7xl">
 	<nav
-		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:bottom-0 before:left-0 before:right-0 before:top-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
+		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:inset-0 before:top-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
 	>
 		<a
 			href="#about"
