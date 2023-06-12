@@ -1,14 +1,39 @@
 <script lang="ts">
 	import AnimatedDivider from '$lib/animatedDivider.svelte';
+
+	function remToPx(rem: number) {
+		return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+	}
+
+	function scrollIntoView(ev: MouseEvent) {
+		const target = ev.target as HTMLAnchorElement;
+		const href = target.getAttribute('href');
+		if (!href) return;
+		const element = document.querySelector(href);
+		if (!element) return;
+		var headerOffset = remToPx(8);
+		var elementPosition = element.getBoundingClientRect().top;
+		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}
 </script>
 
-<nav class="invert-text-color fixed top-0 z-50 flex space-x-4 p-10">
-	<a href="#about" class="hover:underline">About</a>
-	<a href="#contact" class="hover:underline">Contact</a>
+<!-- navbar -->
+<nav
+	class="fixed top-0 z-50 m-4 space-x-3 rounded-full px-6 py-4 mix-blend-difference backdrop-blur-[2px] before:fixed before:inset-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
+>
+	<a href="#about" class="invert hover:underline" on:click|preventDefault={scrollIntoView}>About</a>
+	<a href="#contact" class="invert hover:underline" on:click|preventDefault={scrollIntoView}
+		>Contact</a
+	>
 	<!-- <a href="blog" class="hover:underline">Blog</a> -->
 </nav>
 
-<!-- Header -->
+<!-- header -->
 <div class="relative flex h-[100svh] w-full items-center justify-center bg-black text-white">
 	<div class="flex flex-col items-center space-y-2">
 		<h1 class="text-center">Jack Malcom</h1>
@@ -21,7 +46,7 @@
 	<div class="absolute bottom-0 flex h-[5%] w-full justify-center bg-white" />
 </div>
 
-<!-- Content -->
+<!-- content -->
 <div class="flex justify-center bg-white">
 	<div class="flex min-h-[100svh] max-w-4xl flex-col p-4" id="about">
 		<section>
@@ -44,9 +69,9 @@
 			<h3>Where I've been</h3>
 
 			<section>
-				<div class="flex items-center justify-between">
+				<div class="flex items-center justify-between space-x-4 pb-4">
 					<h4>Bounteous</h4>
-					<span><em>March 2022 - Present</em></span>
+					<span class="text-right"><em>March&nbsp;2022 - Present</em></span>
 				</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit accusamus
@@ -59,9 +84,9 @@
 			</section>
 
 			<section>
-				<div class="flex items-center justify-between">
+				<div class="flex items-center justify-between space-x-4 pb-4">
 					<h4>Tesseract Ventures</h4>
-					<span><em>September 2021 - December 2021</em></span>
+					<span class="text-right"><em>September&nbsp;2021 - December&nbsp;2021</em></span>
 				</div>
 				<p>
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, tempora aliquam magnam
@@ -76,9 +101,9 @@
 			</section>
 
 			<section>
-				<div class="flex items-center justify-between">
+				<div class="flex items-center justify-between space-x-4 pb-4">
 					<h4>SupplyPike</h4>
-					<span><em>May 2021 - September 2021</em></span>
+					<span class="text-right"><em>May&nbsp;2021 - September&nbsp;2021</em></span>
 				</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quis aspernatur voluptatem
@@ -88,9 +113,9 @@
 			</section>
 
 			<section>
-				<div class="flex items-center justify-between">
+				<div class="flex items-center justify-between space-x-4 pb-4">
 					<h4>Affirma</h4>
-					<span><em>October 2020 - April 2021</em></span>
+					<span class="text-right"><em>October&nbsp;2020 - April&nbsp;2021</em></span>
 				</div>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illum ut perferendis
@@ -103,25 +128,20 @@
 </div>
 
 <style lang="postcss">
-	.invert-text-color {
-		filter: invert(1);
-		mix-blend-mode: difference;
-	}
-
 	h1 {
-		@apply font-header text-6xl font-black;
+		@apply font-header text-5xl font-black sm:text-5xl md:text-6xl;
 	}
 
 	h2 {
-		@apply font-header text-3xl;
+		@apply font-header text-2xl md:text-3xl;
 	}
 
 	h3 {
-		@apply pb-4 font-header text-4xl;
+		@apply pb-4 font-header text-3xl md:text-4xl;
 	}
 
 	h4 {
-		@apply pb-4 font-header text-2xl;
+		@apply font-header text-xl md:text-2xl;
 	}
 
 	section {
