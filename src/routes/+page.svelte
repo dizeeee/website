@@ -159,10 +159,11 @@
 			<h3>A very particular set of skills</h3>
 			<p>
 				I got into computers as a kid by learning how to host Minecraft servers for friends. I
-				eventually learned that you could do the same thing by putting Ubuntu on an old computer,
-				and not only would it run better, I could also configure it to restart if there was a crash!
-				After that, it was all downhill from there. I've worked with a ton of different languages
-				and tools, and if I don't know something, I can learn it.
+				eventually learned that you could do the same thing by putting Ubuntu on an old computer.
+				Not only would it run better, I could configure it to restart if there was a crash! After
+				that, I eventually picked up some scripting skills, then moved on to writing my own code.
+				I've worked with a ton of different languages and tools over the years. If I don't know
+				something, I can learn it.
 			</p>
 
 			<section>
