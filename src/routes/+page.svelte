@@ -203,10 +203,10 @@
 				<h4>J.B. Hunt Hackathon</h4>
 				<p>
 					I participated in every hackathon J.B. Hunt hosted on campus that I was able to and had a
-					ton of fun doin it. Our team even won first place one year with an Android alarm clock app
-					that shoots you with a Nerf gun to wake you up. (the theme was smart homes) As a graduate,
-					I still participate as a mentor every semester, and I'm always blown away by the great
-					ideas students manage to come up with.
+					ton of fun doing it. Our team even won first place one year with an Android alarm clock
+					app that shoots you with a Nerf gun to wake you up. (the theme was smart homes) As a
+					graduate, I still participate as a mentor every semester, and I'm always blown away by the
+					great ideas students manage to come up with.
 				</p>
 			</section>
 
