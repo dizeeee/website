@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DitherDivider from '$lib/ditherDivider.svelte';
+	import AnimatedDivider from '$lib/animatedDivider.svelte';
 </script>
 
 <nav class="invert-text-color fixed top-0 z-50 flex space-x-4 p-10">
@@ -16,7 +16,7 @@
 	</div>
 
 	<div class="absolute bottom-[5%]">
-		<DitherDivider />
+		<AnimatedDivider />
 	</div>
 	<div class="absolute bottom-0 flex h-[5%] w-full justify-center bg-white" />
 </div>

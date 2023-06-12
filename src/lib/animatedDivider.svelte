@@ -13,8 +13,7 @@ in vec2 a_position;
 
 void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
-}
-    `;
+}`;
 
 	let fragmentShaderSource = `#version 300 es
 precision lowp float;
@@ -166,4 +165,4 @@ void main() {
 
 <svelte:window on:resize={resizeCanvas} />
 
-<canvas bind:this={canvas} {width} {height} class="w-full" />
+<canvas bind:this={canvas} {width} {height} class="w-full bg-black" />
