@@ -155,7 +155,7 @@
 			</p>
 
 			<h4>Languages</h4>
-			<p>Javascript - Typescript - Python - Java - Rust - Dart - LaTeX</p>
+			<p>Javascript - Typescript - Python - Java - Rust - Dart - LaTeX - GLSL</p>
 
 			<h4>Frameworks</h4>
 			<p>Node.js - React - Angular - FastAPI - Express - NestJS - Flutter - Svelte</p>
