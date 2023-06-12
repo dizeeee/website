@@ -77,7 +77,7 @@ void main() {
 	vec3 color = vec3(0.0);
 
 	for (int i = 0; i < 3; i++) {
-		color[i] = smoothstep(0.0, 0.025, wave(st, 5., 10., int(100.*rand(int(i)))) - st.y);
+		color[i] = smoothstep(0.0, 0.025, wave(st, 5., 40., int(100.*rand(int(i+3)))) - st.y);
 	}
 
 	fragColor = vec4(color, 1.0);
