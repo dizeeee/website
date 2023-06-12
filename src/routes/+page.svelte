@@ -22,8 +22,8 @@
 </div>
 
 <!-- Content -->
-<div class="flex justify-center">
-	<div class="flex min-h-[100svh] max-w-4xl flex-col bg-white p-4" id="about">
+<div class="flex justify-center bg-white">
+	<div class="flex min-h-[100svh] max-w-4xl flex-col p-4" id="about">
 		<section>
 			<h3>Hey there!</h3>
 			<p>
