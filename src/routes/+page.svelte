@@ -46,7 +46,7 @@
 </div>
 
 <!-- header -->
-<div class="relative flex h-[100svh] w-full items-center justify-center bg-black text-white">
+<div class="flex h-[100svh] w-full items-center justify-center bg-black text-white">
 	<div
 		class="z-10 flex flex-col items-center space-y-2"
 		style="text-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.5);"
@@ -216,9 +216,9 @@
 			<section>
 				<h4><a href="https://discord.gg/6KTkmta" aria-label="Invite to Error 479">Error 479</a></h4>
 				<p>
-					Error 479 is a Discord server I started in college to give CSCE students a place find each
-					other and talk. Over time, it has grown into the largest tech based Discord server in the
-					area.
+					Error 479 is a Discord server I started in college to give University of Arkansas CSCE
+					students a place find each other and talk. Over time, it has grown into the largest tech
+					based Discord server in Northwest Arkansas.
 				</p>
 			</section>
 		</section>
