@@ -1,65 +1,14 @@
 <script lang="ts">
-	import AnimatedDivider from '$lib/animatedDivider.svelte';
-
-	function remToPx(rem: number) {
-		return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-	}
-
-	function scrollIntoView(ev: MouseEvent) {
-		const target = ev.target as HTMLAnchorElement;
-		const href = target.getAttribute('href');
-		if (!href) return;
-		const element = document.querySelector(href);
-		if (!element) return;
-		var headerOffset = remToPx(8);
-		var elementPosition = element.getBoundingClientRect().top;
-		var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-		window.scrollTo({
-			top: offsetPosition,
-			behavior: 'smooth'
-		});
-	}
+	import Navbar from '$lib/index/navbar.svelte';
+	import Header from '$lib/index/header.svelte';
+	import ResumeSection from '$lib/index/resumeSection.svelte';
 </script>
 
 <!-- navbar -->
-<div class="mx-auto flex max-w-7xl">
-	<nav
-		class="fixed top-0 z-50 m-4 space-x-4 rounded-full px-6 py-4 mix-blend-difference brightness-125 backdrop-blur-sm before:fixed before:inset-0 before:top-0 before:-m-0.5 before:rounded-full before:border-2 before:border-black"
-	>
-		<a
-			href="#about"
-			class="decoration-2 underline-offset-2 invert hover:underline"
-			aria-label="Scroll to the about section"
-			on:click|preventDefault={scrollIntoView}>About</a
-		>
-		<a
-			href="#contact"
-			class="decoration-2 underline-offset-2 invert hover:underline"
-			aria-label="Scroll to the contact section"
-			on:click|preventDefault={scrollIntoView}
-		>
-			Contact
-		</a>
-		<!-- <a href="blog" class="hover:underline">Blog</a> -->
-	</nav>
-</div>
+<Navbar />
 
 <!-- header -->
-<div class="flex h-[100svh] w-full items-center justify-center bg-black text-white">
-	<div
-		class="z-10 flex flex-col items-center space-y-2"
-		style="text-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.5);"
-	>
-		<h1 class="text-center">Jack Malcom</h1>
-		<h2 class="text-center">Software Engineer</h2>
-	</div>
-
-	<div class="absolute bottom-[5%]">
-		<AnimatedDivider />
-	</div>
-	<div class="absolute bottom-0 flex h-[5%] w-full justify-center bg-white" />
-</div>
+<Header />
 
 <!-- content -->
 <div class="flex justify-center bg-white">
@@ -68,9 +17,10 @@
 			<section>
 				<h3>Hey there!</h3>
 				<p>
-					I'm Jack, a software engineer based in Fayetteville, AR. I graduated from University of
-					Arkansas with a Computer Science BS, and I'm currently working at Bounteous as a developer
-					on the Cloud Engineering Security team.
+					I'm Jack, a software engineer based in Fayetteville, AR. I majored in Computer Science at
+					the University of Arkansas, and I've been working in the industry for a couple years now.
+					I'm currently working at Walmart Global Tech as a Software Engineer, and I love bouldering
+					and playing Magic in my free time!
 				</p>
 			</section>
 		</section>
@@ -78,112 +28,89 @@
 		<section>
 			<h3>Where I've been</h3>
 
-			<section>
-				<div class="flex items-center justify-between space-x-4 pb-4">
-					<div class="flex flex-col">
-						<h4>Bounteous</h4>
-						<em class="text-sm">Associate DevOps Architect</em>
-					</div>
-					<span class="text-right"><em>March&nbsp;2022 - Present</em></span>
-				</div>
-				<p>
-					At Bounteous, I work with the Cloud Engineering Security to develop tools to make
-					deployments smoother and data more accessible. My first project was redesigning the tool
-					we use to deploy the frontends and APIs that many of the major fast food chains in the US
-					rely on using Angular and FastAPI. Currently, I'm working on a status page that makes it
-					easier for our non technical clients to view and understand their AWS infrastructure.
-				</p>
-			</section>
+			<ResumeSection
+				company="Walmart Global Tech"
+				title="Software Engineer III"
+				startDate="July 2023"
+				endDate="Present"
+				description="I currently work in Health & Wellness, where I develop tools used to maintain Walmart's
+				patient profile systems. Most of my work is in Spring Boot, but I also work with Rust and
+				React."
+			/>
 
-			<section>
-				<div class="flex items-center justify-between space-x-4 pb-4">
-					<div class="flex flex-col">
-						<h4>Tesseract Ventures</h4>
-						<em class="text-sm">Full Stack Developer</em>
-					</div>
-					<span class="text-right"><em>September&nbsp;2021 - December&nbsp;2021</em></span>
-				</div>
-				<p>
-					While working as an intern Tesseract, I worked on an interactive presentation platform
-					that allows users to drag information around as windows, and quickly find data they're
-					looking for. Most of the work I did was centered around improving window management,
-					including being able to tile, search, and filter windows based on the data inside them. I
-					also used WebSockets to stream data to the mobile web version of the platform, allowing
-					several users to view and interact with the same data at the same time.
-				</p>
-			</section>
+			<ResumeSection
+				company="Bounteous"
+				title="Associate DevOps Architect"
+				startDate="March 2022"
+				endDate="July 2023"
+				description="At Bounteous, I worked with the DevOps team to maintain tools that streamlined their AWS
+				deployments. I also developed a status page product to allow clients to get real time,
+				relevant data from their AWS accounts. This work was done using a combination of Angular,
+				FastAPI, and CloudFormation."
+			/>
 
-			<section>
-				<div class="flex items-center justify-between space-x-4 pb-4">
-					<div class="flex flex-col">
-						<h4>SupplyPike</h4>
-						<em class="text-sm">Frontend Developer</em>
-					</div>
-					<span class="text-right"><em>May&nbsp;2021 - September&nbsp;2021</em></span>
-				</div>
-				<p>
-					As an intern at SupplyPike, I got to work on the newly formed SDI team. Our goal at the
-					time was to simplify and ultimately replace the tools that we used to scrape and process
-					files for our clients. My main project was a React-based frontend tool that allowed us and
-					our clients to view what files we had ingested, where the file was in our processing
-					pipeline, and what data we had extracted from the file. I also worked on some of the
-					backend code, adding new scrapers to help us reach parity with our existing services.
-				</p>
-				<p>
-					The frontend work I did used a new internal React component library. One of the big goals
-					was to make the tool I was working on the first to be almost entirely based on that
-					library. As a result, I got to help steer some of the direction of the project, while also
-					have the opportunity to work with incredibly talented designers.
-				</p>
-			</section>
+			<ResumeSection
+				company="Tesseract Ventures"
+				title="Full Stack Developer - Intern"
+				startDate="September 2021"
+				endDate="December 2021"
+				description="While at Tesseract, I worked on a presentation platform that enabled users to interact
+				with the data in real time, on multiple devices. I was responsible for improving the
+				layout and websocket systems. Most of my work was done in Typescript and React, as well as
+				a research project using D-Bus."
+			/>
 
-			<section>
-				<div class="flex items-center justify-between space-x-4 pb-4">
-					<div class="flex flex-col">
-						<h4>Affirma</h4>
-						<em class="text-sm">Frontend Developer</em>
-					</div>
-					<span class="text-right"><em>October&nbsp;2020 - April&nbsp;2021</em></span>
-				</div>
-				<p>
-					My first internship was at Affirma, working as a frontend developer. The majority of my
-					work centered around updating websites for our clients with modern designs. Essentially, I
-					was taking websites from 2002 and pulling them out of the stone age. All of this work was
-					done in existing CMS systems, such as CraftCMS and Drupal, and changes made were mostly
-					done with CSS.
-				</p>
-			</section>
+			<ResumeSection
+				company="SupplyPike"
+				title="Frontend Developer - Intern"
+				startDate="May 2021"
+				endDate="September 2021"
+				description="At SupplyPike, I was the main frontend developer on a new product designed to simplify a
+				major document processing pipeline. I made contributions to repos built with React and
+				Nest.js."
+			/>
+
+			<ResumeSection
+				company="Affirma"
+				title="Frontend Developer - Intern"
+				startDate="October 2020"
+				endDate="April 2021"
+				description="During my time with Affirma, I modernized client websites using a variety of CMS systems.
+				A majority of my time was spent on a project that used CraftCMS, React, and GraphQL. In
+				short, I websites look like they weren't taken directly out of the 90s."
+			/>
 		</section>
 
 		<section>
 			<h3>A very particular set of skills</h3>
 			<p>
-				I got into computers as a kid by learning how to host Minecraft servers for friends. I
-				eventually learned that you could do the same thing by putting Ubuntu on an old computer.
-				Not only would it run better, I could configure it to restart if there was a crash! After
-				that, I eventually picked up some scripting skills, then moved on to writing my own code.
-				I've worked with a ton of different languages and tools over the years. If I don't know
-				something, I can learn it.
+				I've been tinkering with Linux for the better part of a decade, and I've picked up a wide
+				range of skills as a result. Here's some of the tools and languages I'm most comfortable
+				with:
 			</p>
 
 			<section>
 				<h4>Languages</h4>
-				<p>Javascript - Typescript - Python - Java - Rust - Dart - LaTeX - GLSL</p>
-				<h4>Frameworks</h4>
-				<p>Node.js - React - Angular - FastAPI - Express - NestJS - Flutter - Svelte</p>
+				<p>Javascript / Typescript - Java - Python - GraphQL - Rust - Dart - LaTeX</p>
+
+				<h4>Frameworks + Libraries</h4>
+				<p>Spring Boot - React - Angular - FastAPI - Express - NestJS - Flutter - SvelteKit</p>
+
 				<h4>Databases</h4>
 				<p>PostgreSQL - SQLite - DynamoDB</p>
+
 				<h4>Tools</h4>
 				<p>
-					Node.js - Git - Docker - AWS - <a href="https://archlinux.org/" aria-label="Arch BTW"
-						>Linux</a
-					>
+					Docker - Git - <a href="https://archlinux.org/" aria-label="Arch BTW">Linux</a>
 				</p>
+
+				<h4>Cloud</h4>
+				<p>AWS - GCP - Vercel - Netlify - Fly - DigitalOcean</p>
 			</section>
 		</section>
 
 		<section>
-			<h3>Things I like working on</h3>
+			<h3>My hobby projects</h3>
 
 			<section>
 				<h4>MTG Inventory</h4>
@@ -205,11 +132,10 @@
 			<section>
 				<h4>J.B. Hunt Hackathon</h4>
 				<p>
-					I participated in every hackathon J.B. Hunt hosted on campus that I was able to and had a
-					ton of fun doing it. Our team even won first place one year with an Android alarm clock
-					app that shoots you with a Nerf gun to wake you up. (the theme was smart homes) As a
-					graduate, I still participate as a mentor every semester, and I'm always blown away by the
-					great ideas students manage to come up with.
+					While I was in college, I participated in every hackathon the computer science department
+					held. It was an amazing learning experience, and I still attend as a mentor. You usually
+					find me running workshops, as well as working with teams on their planning and
+					presentation skills.
 				</p>
 			</section>
 
@@ -224,9 +150,10 @@
 		</section>
 
 		<section id="contact">
-			<h3>How to reach me</h3>
+			<h3>Where to contact me</h3>
 			<p>
-				Want to talk? Feel free to send me an email at <em>me(at)jackmal(dot)com</em>, message me on
+				Want to talk? Feel free to send me an email at <em>jobs(at)jackmal(dot)com</em>, message me
+				on
 				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/" aria-label="My LinkedIn"
 					>LinkedIn</a
 				>, or check out the links below.
@@ -244,16 +171,8 @@
 </div>
 
 <style lang="postcss">
-	h1 {
-		@apply font-header text-5xl font-black sm:text-5xl md:text-6xl;
-	}
-
-	h2 {
-		@apply font-header text-2xl md:text-3xl;
-	}
-
 	h3 {
-		@apply pb-4 font-header text-3xl md:text-4xl;
+		@apply pb-6 font-header text-3xl md:text-4xl;
 	}
 
 	h4 {
@@ -268,7 +187,8 @@
 		@apply pb-4;
 	}
 
+	/* Add underlines and subtle fade to gray on links */
 	:not(nav) > a {
-		@apply underline transition delay-75 ease-linear hover:contrast-50;
+		@apply underline transition delay-[25] ease-linear hover:text-zinc-600;
 	}
 </style>
