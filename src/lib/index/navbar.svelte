@@ -42,6 +42,6 @@
 	}
 
 	.dark {
-		@apply text-white;
+		@apply text-white border-2 border-transparent;
 	}
 </style>
