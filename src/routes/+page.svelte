@@ -56,7 +56,7 @@
 				endDate="December 2021"
 				description="While at Tesseract, I worked on a presentation platform that enabled users to interact
 				with the data in real time, on multiple devices. I was responsible for improving the
-				layout and websocket systems. Most of my work was done in Typescript and React, as well as
+				layout and websocket systems. Most of my work was done in Typescript and React, along with
 				a research project using D-Bus."
 			/>
 
@@ -125,7 +125,7 @@
 					<a href="https://turso.tech/" aria-label="Turso SQLite">SQLite</a>, and
 					<a href="https://vercel.com/" aria-label="Vercel">Vercel</a>. Currently, I'm working on
 					improving database structure so I can make complicated queries that other inventory sites
-					can't.
+					struggle with.
 				</p>
 			</section>
 
@@ -142,9 +142,9 @@
 			<section>
 				<h4><a href="https://discord.gg/6KTkmta" aria-label="Invite to Error 479">Error 479</a></h4>
 				<p>
-					Error 479 is a Discord server I started in college to give University of Arkansas CSCE
+					Error 479 is a Discord server I started in college to give University of Arkansas EECS
 					students a place find each other and talk. Over time, it has grown into the largest tech
-					based Discord server in Northwest Arkansas.
+					focused Discord server in Northwest Arkansas.
 				</p>
 			</section>
 		</section>
