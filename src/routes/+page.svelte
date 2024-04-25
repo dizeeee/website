@@ -2,6 +2,7 @@
 	import Navbar from '$lib/index/navbar.svelte';
 	import Header from '$lib/index/header.svelte';
 	import ResumeSection from '$lib/index/resumeSection.svelte';
+	import CtaButton from '$lib/ctaButton.svelte';
 </script>
 
 <!-- navbar -->
@@ -23,6 +24,12 @@
 					and playing Magic in my free time!
 				</p>
 			</section>
+			<div class="mb-6 flex w-full justify-center">
+				<CtaButton
+					href="https://github.com/dizeeee/resume/blob/main/jackmalcom.pdf"
+					text="Read my resume!"
+				/>
+			</div>
 		</section>
 
 		<section>
