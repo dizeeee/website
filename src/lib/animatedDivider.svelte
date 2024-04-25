@@ -84,8 +84,6 @@ void main() {
 }`;
 
 	onMount(() => {
-		resizeCanvas();
-
 		gl = canvas.getContext('webgl2', { antialias: true })!;
 		if (!gl) throw new Error('Could not get WebGL context');
 
@@ -154,6 +152,7 @@ void main() {
 			time += 0.01;
 		}
 
+		resizeCanvas();
 		draw();
 	});
 
@@ -165,4 +164,4 @@ void main() {
 
 <svelte:window on:resize={resizeCanvas} />
 
-<canvas bind:this={canvas} {width} {height} class="w-full bg-black" />
+<canvas bind:this={canvas} {width} {height} class="w-screen bg-black" />
