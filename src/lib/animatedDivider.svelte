@@ -164,4 +164,4 @@ void main() {
 
 <svelte:window on:resize={resizeCanvas} />
 
-<canvas bind:this={canvas} {width} {height} class="w-screen bg-black" />
+<canvas bind:this={canvas} {width} {height} class="w-auto bg-black" />
