@@ -2,11 +2,12 @@
 	"name": "website",
 	"account_id": "222788115ddfc69a2722fdfcf82fbd9b",
 	"main": "./.cloudflare/worker.js",
-	"site": {
-		"bucket": "./.cloudflare/public"
-	},
 	"build": {
 		"command": "bun run build"
 	},
-	"compatibility_date": "2021-11-12"
+    "assets": {
+		"directory": ".cloudflare/public",
+		"binding": "ASSETS"
+	},
+	"compatibility_date": "2025-07-04"
 }
