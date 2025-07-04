@@ -4,6 +4,11 @@
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	inject({ mode: dev ? 'development' : 'production' });
 	injectSpeedInsights();
@@ -18,4 +23,4 @@
 	/>
 </svelte:head>
 
-<slot />
+{@render children?.()}

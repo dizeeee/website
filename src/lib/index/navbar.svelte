@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { scrollTo } from '$lib/helper';
 
-	let y = 0;
-	let navbar: HTMLElement;
+	let y = $state(0);
+	let navbar: HTMLElement = $state();
 
 	function fadeIn(event: any) {
 		// convert y to viewport percentage
@@ -12,7 +14,7 @@
 	}
 </script>
 
-<svelte:window bind:scrollY={y} on:scroll={fadeIn} />
+<svelte:window bind:scrollY={y} onscroll={fadeIn} />
 
 <nav
 	bind:this={navbar}
@@ -22,14 +24,14 @@
 		href="#about"
 		class="decoration-2 underline-offset-2 hover:underline"
 		aria-label="Scroll to the about section"
-		on:click|preventDefault={scrollTo}
+		onclick={preventDefault(scrollTo)}
 		>About
 	</a>
 	<a
 		href="#contact"
 		class="decoration-2 underline-offset-2 hover:underline"
 		aria-label="Scroll to the contact section"
-		on:click|preventDefault={scrollTo}
+		onclick={preventDefault(scrollTo)}
 	>
 		Contact
 	</a>

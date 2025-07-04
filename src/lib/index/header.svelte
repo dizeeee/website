@@ -14,7 +14,7 @@
 	<div class="absolute bottom-[5%]">
 		<AnimatedDivider />
 	</div>
-	<div class="absolute bottom-0 flex h-[5%] w-full justify-center bg-white" />
+	<div class="absolute bottom-0 flex h-[5%] w-full justify-center bg-white"></div>
 </div>
 
 <style lang="postcss">

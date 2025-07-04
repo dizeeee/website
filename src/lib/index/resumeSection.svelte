@@ -1,9 +1,19 @@
-<script>
-	export let company = '';
-	export let title = '';
-	export let startDate = '';
-	export let endDate = '';
-	export let description = '';
+<script lang="ts">
+	interface Props {
+		company?: string;
+		title?: string;
+		startDate?: string;
+		endDate?: string;
+		description?: string;
+	}
+
+	let {
+		company = '',
+		title = '',
+		startDate = '',
+		endDate = '',
+		description = ''
+	}: Props = $props();
 </script>
 
 <section>

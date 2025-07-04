@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte';
 
 	let canvas: HTMLCanvasElement;
-	let gl: WebGL2RenderingContext;
+	let gl: WebGL2RenderingContext | null;
 	let program: WebGLProgram;
 	let positionBuffer: WebGLBuffer;
-	let width = 0;
-	let height = 0;
+	let width = $state(0);
+	let height = $state(0);
 
 	const vertexShaderSource = `#version 300 es
 in vec2 a_position;
@@ -15,7 +15,7 @@ void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
 }`;
 
-	let fragmentShaderSource = `#version 300 es
+	const fragmentShaderSource = `#version 300 es
 precision lowp float;
 
 uniform vec2 u_resolution;
@@ -84,7 +84,9 @@ void main() {
 }`;
 
 	onMount(() => {
-		gl = canvas.getContext('webgl2', { antialias: true })!;
+		if (!canvas) throw new Error('Canvas not found');
+
+		gl = canvas.getContext('webgl2', { antialias: true });
 		if (!gl) throw new Error('Could not get WebGL context');
 
 		// create vertex shader
@@ -106,7 +108,7 @@ void main() {
 		}
 
 		// create program
-		program = gl.createProgram()!;
+		program = gl.createProgram();
 		gl.attachShader(program, vertexShader);
 		gl.attachShader(program, fragmentShader);
 		gl.linkProgram(program);
@@ -115,7 +117,7 @@ void main() {
 		}
 
 		// create position buffer
-		positionBuffer = gl.createBuffer()!;
+		positionBuffer = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
 
@@ -127,6 +129,7 @@ void main() {
 		// draw loop
 		let time = 0;
 		function draw() {
+			if (!gl) return;
 			requestAnimationFrame(draw);
 
 			// resize viewport
@@ -162,6 +165,6 @@ void main() {
 	}
 </script>
 
-<svelte:window on:resize={resizeCanvas} />
+<svelte:window onresize={resizeCanvas} />
 
-<canvas bind:this={canvas} {width} {height} class="w-auto bg-black" />
+<canvas bind:this={canvas} {width} {height} class="w-auto bg-black"></canvas>

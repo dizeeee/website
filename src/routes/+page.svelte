@@ -167,10 +167,10 @@
 			</p>
 			<div class="flex h-16 items-center justify-center space-x-4 pb-4 text-4xl">
 				<a href="https://www.linkedin.com/in/jack-malcom-0b5870171/" aria-label="My LinkedIn">
-					<i class="fa-brands fa-linkedin hover:contrast-50" />
+					<i class="fa-brands fa-linkedin hover:contrast-50"></i>
 				</a>
 				<a href="https://github.com/dizeeee" aria-label="My GitHub">
-					<i class="fa-brands fa-github hover:contrast-50" />
+					<i class="fa-brands fa-github hover:contrast-50"></i>
 				</a>
 			</div>
 		</section>
