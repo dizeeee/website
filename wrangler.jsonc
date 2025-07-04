@@ -9,5 +9,15 @@
 		"directory": ".cloudflare/public",
 		"binding": "ASSETS"
 	},
+    "routes": [
+        {
+            "pattern": "jackmal.com",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.jackmal.com",
+            "custom_domain": true
+        }
+    ],
 	"compatibility_date": "2025-07-04"
 }
