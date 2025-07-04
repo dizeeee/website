@@ -116,7 +116,7 @@
 			</section>
 		</section>
 
-		<section>
+		<!-- <section>
 			<h3>My hobby projects</h3>
 
 			<section>
@@ -154,7 +154,7 @@
 					focused Discord server in Northwest Arkansas.
 				</p>
 			</section>
-		</section>
+		</section> -->
 
 		<section id="contact">
 			<h3>Where to contact me</h3>
